@@ -127,7 +127,7 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
   <div class="abs a pop" style="left:1050px;top:150px;width:300px;--r:6deg;animation-delay:11.5s"><img class="sticker float" src="img/bottle.png" style="width:100%;--r:0deg"></div>
   <div class="abs mid" style="left:600px;top:60px;font-size:54px;--r:-2deg"><span class="hl" style="--hc:#9be7ae;animation-delay:12.66s">สำหรับคนนอนไม่ค่อยหลับ</span></div>
   <div class="abs a pop" style="left:600px;top:560px;--r:3deg;animation-delay:13.8s"><div class="bubble" style="--c:var(--yellow);font-size:46px">ใน 6 ชม. แรก</div></div>
-  <div class="abs a pop" style="left:330px;top:300px;--r:-3deg;animation-delay:14.8s"><div class="bubble" style="--c:#c9f2d2">ปลดปล่อยเรื่อยๆ</div></div>
+  <div class="abs a pop" style="left:540px;top:215px;--r:-3deg;animation-delay:14.8s"><div class="bubble" style="--c:#c9f2d2">ปลดปล่อยเรื่อยๆ</div></div>
   <div class="abs a slam big" style="right:50px;top:800px;font-size:104px;color:var(--yellow);--r:-3deg;animation-delay:17.5s">ตลอด 6 ชม.</div>
   <div data-star="var(--yellow),100,40,120"></div><div data-star="var(--red),80,1330,960"></div>
 </section>
@@ -213,9 +213,9 @@ document.querySelectorAll(".ticks").forEach(t=>{for(let i=0;i<12;i++){const a=i*
 document.querySelectorAll(".hours").forEach(h=>{for(let i=1;i<=6;i++)h.insertAdjacentHTML("beforeend",
   `<div class="a pop" style="animation-delay:${20.6+i*0.4}s"><div class="bubble" style="--c:#c9f2d2;font-size:40px;padding:4px 22px 8px">${i} ชม.</div></div>`)});
 // coating layers, outside in
-document.querySelectorAll(".layers").forEach(s=>{const cols=["#d9f1fc","#a9def7","#6fc5f0","#35a6e6"],rs=[240,190,140,92];
+document.querySelectorAll(".layers").forEach(s=>{const cols=["#d9f1fc","#8fd3f5","#45b0ea"],rs=[240,175,110];
   rs.forEach((r,i)=>s.insertAdjacentHTML("beforeend",`<g class="a pop" style="animation-delay:${25.4+i*0.3}s"><circle r="${r}" fill="${cols[i]}" stroke="#1b1b1b" stroke-width="8"/></g>`));
-  s.insertAdjacentHTML("beforeend",`<g class="a pop" style="animation-delay:26.6s"><circle r="50" fill="#1e7fc4" stroke="#1b1b1b" stroke-width="8"/><text y="18" text-anchor="middle" font-family="K" font-weight="900" font-size="50" fill="#fff">Mg</text></g>`)});
+  s.insertAdjacentHTML("beforeend",`<g class="a pop" style="animation-delay:26.3s"><circle r="56" fill="#1e7fc4" stroke="#1b1b1b" stroke-width="8"/><text y="18" text-anchor="middle" font-family="K" font-weight="900" font-size="50" fill="#fff">Mg</text></g>`)});
 // scattered arrows from a grey capsule
 document.querySelectorAll(".scatter").forEach(s=>{let g="";for(let i=0;i<8;i++){const a=i*Math.PI/4+0.3,x=Math.cos(a)*300,y=Math.sin(a)*300;
   g+=`<line class="draw" pathLength="1" x1="${Math.cos(a)*130}" y1="${Math.sin(a)*130}" x2="${x}" y2="${y}" stroke="#8c8c8c" stroke-width="14" stroke-linecap="round" style="animation-delay:${31.7+i*0.12}s;animation-duration:.35s"/>`+

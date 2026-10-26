@@ -80,7 +80,7 @@ for i in range(6): add(21.0 + i * 0.4, blip(523.25 * 2 ** (i * 2 / 12)), .5)
 add(22.5, boom(), .75); add(22.5, ding(1760), .5)
 # 6 tiny but multi-coated
 add(24.3, shutter(), .6); add(25.2, typing(7), .4)
-for i in range(5): add(25.4 + i * 0.3, pop(500 + 120 * i), .6)
+for i in range(4): add(25.4 + i * 0.3, pop(500 + 120 * i), .6)
 add(25.6, boom(), .6)
 # 7 slow release
 add(28.0, pop(700), .5); add(28.3, sparkle(), .55); add(29.2, pop(950), .5); add(29.1, typing(11), .4)
