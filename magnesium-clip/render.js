@@ -3,7 +3,7 @@ const { spawn } = require('child_process');
 (async () => {
   const [page_, mode, out, fpsArg] = process.argv.slice(2);
   const b = await chromium.launch();
-  const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
+  const p = await b.newPage({ viewport: { width: +(process.env.W||1080), height: +(process.env.H||1920) } });
   await p.goto('file://' + page_); await p.evaluate(() => window.ready);
   if (mode === 'stills') {
     for (const t of out.split(',')) { await p.evaluate(t => renderAt(t), +t); await p.screenshot({ path: `${fpsArg}/still_${t}.jpg`, type: 'jpeg', quality: 80 }); }
