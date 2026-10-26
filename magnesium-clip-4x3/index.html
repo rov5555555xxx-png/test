@@ -55,18 +55,32 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(180deg)}}
 @keyframes shake{0%,100%{transform:translate(0,0)}25%{transform:translate(-6px,3px)}75%{transform:translate(6px,-3px)}}
 .star{animation:twinkle 1.4s ease-in-out infinite}
+.mid{font-weight:900;font-size:60px;line-height:1.25;color:var(--ink);white-space:nowrap;-webkit-text-stroke:12px #fff;paint-order:stroke fill;transform:rotate(var(--r,0deg))}
+.mid.inv{color:#fff;-webkit-text-stroke:12px var(--ink)}
+.type{animation:type .55s steps(14) both}
+@keyframes type{from{clip-path:inset(-30% 100% -30% -5%)}to{clip-path:inset(-30% -5% -30% -5%)}}
+.hl{background:linear-gradient(var(--hc,#ffd23f),var(--hc,#ffd23f)) no-repeat 0 90%/0% 45%;animation:hl .45s ease-out both;padding:0 10px}
+@keyframes hl{to{background-size:100% 45%}}
+.zz{font-weight:900;color:#fff;-webkit-text-stroke:8px var(--ink);paint-order:stroke fill;animation:zz 1.8s ease-out infinite}
+@keyframes zz{0%{transform:translate(0,0) scale(.6);opacity:0}20%{opacity:1}100%{transform:translate(60px,-140px) scale(1.2);opacity:0}}
 </style>
 </head>
 <body>
 <div id="stage">
 
-<!-- 1 hook 0-2.86 -->
-<section class="scene grid-pink" data-start="0" data-end="2.86">
-  <div class="abs a pop" style="left:60px;top:200px;width:380px;--r:-6deg;animation-delay:.05s"><img class="sticker float" src="img/box.png" style="width:100%;--r:0deg"></div>
-  <div class="abs a pop" style="left:320px;top:300px;width:330px;--r:5deg;animation-delay:.15s"><img class="sticker float" src="img/bottle.png" style="width:100%;--r:0deg;animation-delay:-1.2s"></div>
-  <div class="abs a slam big" style="right:70px;top:330px;font-size:140px;color:#fff;--r:-4deg;animation-delay:.25s">แมกนีเซียม</div>
-  <div class="abs tapewrap" style="right:90px;top:560px"><span class="tape a drop" style="--c:var(--red);font-size:62px;animation-delay:1.9s">ไม่เหมือนตัวทั่วไป!</span></div>
-  <div data-star="var(--yellow),110,1300,90"></div><div data-star="var(--blue),80,60,880"></div><div data-star="var(--red),90,1310,880"></div>
+<!-- 1 hook 0-2.86: made for sleep -->
+<section class="scene night" data-start="0" data-end="2.86">
+  <svg class="abs float" style="left:-40px;top:820px;opacity:.9" width="1520" height="300" viewBox="0 0 1520 300"><path d="M0,300 L0,150 Q60,70 150,120 Q210,30 320,90 Q400,20 500,100 Q580,50 660,120 Q760,40 860,110 Q950,50 1040,120 Q1120,60 1210,110 Q1300,40 1400,100 Q1470,80 1520,130 L1520,300 Z" fill="#3a3f8f"/><path d="M0,300 L0,220 Q80,150 180,200 Q260,130 360,190 Q460,140 560,200 Q660,150 760,210 Q860,160 960,210 Q1060,150 1160,200 Q1260,150 1360,200 Q1450,170 1520,210 L1520,300 Z" fill="#4a50a8"/></svg>
+  <div class="abs a pop sticker" style="left:60px;top:40px;width:220px;--r:-14deg;animation-delay:0s" data-moon></div>
+  <div class="abs zz" style="left:250px;top:140px;font-size:64px;animation-delay:.3s">Z</div>
+  <div class="abs zz" style="left:220px;top:170px;font-size:44px;animation-delay:1.1s">z</div>
+  <div class="abs a pop" style="left:120px;top:330px;width:320px;--r:-6deg;animation-delay:.1s"><img class="sticker float" src="img/box.png" style="width:100%;--r:0deg"></div>
+  <div class="abs a pop" style="left:340px;top:410px;width:280px;--r:5deg;animation-delay:.2s"><img class="sticker float" src="img/bottle.png" style="width:100%;--r:0deg;animation-delay:-1.2s"></div>
+  <div class="abs a slam big" style="right:120px;top:110px;font-size:110px;color:#fff;--r:-3deg;animation-delay:.25s">แมกนีเซียม</div>
+  <div class="abs a slam big" style="right:60px;top:270px;font-size:150px;color:var(--yellow);--r:-3deg;animation-delay:.9s">เพื่อการนอน</div>
+  <div class="abs tapewrap" style="right:110px;top:500px"><span class="tape a slam" style="--c:var(--red);font-size:74px;--r:4deg;animation-delay:1.35s">โดยเฉพาะ!</span></div>
+  <div class="abs mid inv type" style="right:80px;top:680px;font-size:54px;animation-delay:2.0s">ไม่เหมือนแมกนีเซียมทั่วไป</div>
+  <div data-star="#ffd23f,80,700,60"></div><div data-star="#fff,50,560,200"></div><div data-star="#ffd23f,60,1360,40"></div><div data-star="#fff,40,40,620"></div><div data-star="#ffd23f,50,1380,760"></div>
 </section>
 
 <!-- 2 six hours 2.86-7.38 -->
@@ -82,6 +96,7 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
     </svg></div>
   <div class="abs a slam big" style="left:820px;top:170px;font-size:430px;line-height:1;color:var(--yellow);--r:-5deg;animation-delay:5.88s">6</div>
   <div class="abs a pop big" style="left:830px;top:640px;font-size:120px;color:#fff;--r:3deg;animation-delay:6.05s">ชั่วโมง</div>
+  <div class="abs mid type" style="left:1060px;top:230px;--r:8deg;animation-delay:5.3s">นานถึง</div>
   <div data-star="var(--green),110,1300,120"></div><div data-star="var(--red),80,60,90"></div><div data-star="var(--yellow),90,1310,900"></div>
 </section>
 
@@ -93,6 +108,8 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
       <path class="draw" pathLength="1" d="M90,640 C150,60 260,40 340,300 S 520,610 960,620" fill="none" stroke="#ef3e36" stroke-width="16" stroke-linecap="round" style="animation-delay:7.7s;animation-duration:3.1s"/>
     </svg>
   </div>
+  <div class="abs mid" style="left:330px;top:150px;--r:-3deg"><span class="hl" style="animation-delay:7.6s">ช่วงแรก</span></div>
+  <div class="abs mid type" style="left:760px;top:690px;--r:3deg;animation-delay:10.6s">หลังผ่านไปไม่กี่ชั่วโมง</div>
   <div class="abs a pop" style="left:540px;top:250px;--r:-4deg;animation-delay:8.8s"><div class="bubble" style="--c:var(--yellow)">ดูดซึมทีเดียวเยอะ</div></div>
   <div class="abs a pop" style="left:690px;top:560px;--r:4deg;animation-delay:10.0s"><div class="bubble" style="--c:#ffd4d1">แล้วก็ลดลง ↓</div></div>
   <div data-star="var(--red),100,1310,70"></div><div data-star="var(--blue),80,40,940"></div>
@@ -108,6 +125,8 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
     </svg>
   </div>
   <div class="abs a pop" style="left:1050px;top:150px;width:300px;--r:6deg;animation-delay:11.5s"><img class="sticker float" src="img/bottle.png" style="width:100%;--r:0deg"></div>
+  <div class="abs mid" style="left:600px;top:60px;font-size:54px;--r:-2deg"><span class="hl" style="--hc:#9be7ae;animation-delay:12.66s">สำหรับคนนอนไม่ค่อยหลับ</span></div>
+  <div class="abs a pop" style="left:600px;top:560px;--r:3deg;animation-delay:13.8s"><div class="bubble" style="--c:var(--yellow);font-size:46px">ใน 6 ชม. แรก</div></div>
   <div class="abs a pop" style="left:330px;top:300px;--r:-3deg;animation-delay:14.8s"><div class="bubble" style="--c:#c9f2d2">ปลดปล่อยเรื่อยๆ</div></div>
   <div class="abs a slam big" style="right:50px;top:800px;font-size:104px;color:var(--yellow);--r:-3deg;animation-delay:17.5s">ตลอด 6 ชม.</div>
   <div data-star="var(--yellow),100,40,120"></div><div data-star="var(--red),80,1330,960"></div>
@@ -115,6 +134,7 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
 
 <!-- 5 high all the time 18.82-24.26 -->
 <section class="scene grid-sky" data-start="18.82" data-end="24.26">
+  <div class="abs mid type" style="left:150px;top:160px;font-size:52px;animation-delay:18.9s">หมายความว่า...</div>
   <div class="row" style="top:60px"><div class="tapewrap"><span class="tape a drop" style="--c:var(--blue);font-size:64px;animation-delay:19.85s">6 ชั่วโมงแรก</span></div></div>
   <div class="abs a pop" style="left:150px;top:250px;animation-delay:19.0s">
     <div style="font-weight:900;font-size:44px;color:var(--ink);margin:0 0 14px 8px">แมกนีเซียมในร่างกาย</div>
@@ -130,6 +150,7 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
 <!-- 6 small but layered 24.26-27.98 -->
 <section class="scene grid-pink" data-start="24.26" data-end="27.98">
   <div class="abs a pop photo" style="left:90px;top:200px;width:620px;--r:-4deg;animation-delay:24.3s"><div style="overflow:hidden;border-radius:6px"><img class="zoom" src="img/capsule_real.jpg" style="animation-delay:24.3s"></div><div class="cap">เล็กๆ แบบนี้</div></div>
+  <div class="abs mid type" style="left:930px;top:50px;--r:-3deg;animation-delay:25.2s">แต่ข้างใน...</div>
   <div class="abs a pop" style="left:830px;top:140px;animation-delay:25.3s"><svg width="520" height="520" viewBox="-260 -260 520 520" class="layers"></svg></div>
   <div class="abs a slam big" style="right:60px;top:720px;font-size:116px;color:var(--yellow);--r:-3deg;animation-delay:25.6s">เคลือบหลายชั้น</div>
   <div data-star="var(--blue),100,1320,80"></div><div data-star="var(--yellow),80,40,80"></div>
@@ -140,6 +161,7 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
   <div class="row" style="top:150px"><div class="a pop photo" style="width:900px;padding:14px;--r:2deg;animation-delay:28.0s"><img src="img/pellets.jpg"></div></div>
   <div class="row" style="top:690px"><div class="big a slam" style="font-size:140px;color:#fff;--r:-2deg;animation-delay:28.3s">ค่อยๆ ปลดปล่อย</div></div>
   <div class="abs a pop sticker" style="left:1180px;top:60px;width:200px;--r:-12deg;animation-delay:29.2s" data-moon></div>
+  <div class="row" style="top:900px"><div class="mid type" style="font-size:56px;animation-delay:29.1s">ร่างกายนำไปใช้ได้ต่อเนื่อง</div></div>
   <div data-star="var(--yellow),90,60,80"></div><div data-star="var(--green),80,1320,950"></div>
 </section>
 
@@ -156,6 +178,7 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
   <div class="abs tapewrap" style="left:120px;top:50px"><span class="tape a slam" style="--c:var(--green);font-size:70px;--r:-3deg;animation-delay:35.3s">แต่ตัวนี้</span></div>
   <div class="abs a pop sticker" style="left:150px;top:230px;animation-delay:35.6s"><svg width="620" height="620" viewBox="-310 -310 620 620" class="target"></svg></div>
   <div class="abs a fromL" style="left:250px;top:470px;animation-delay:36.85s"><svg width="420" height="80" viewBox="0 0 420 80"><line x1="10" y1="40" x2="370" y2="40" stroke="#1b1b1b" stroke-width="16" stroke-linecap="round"/><path d="M360,10 L415,40 L360,70 Z" fill="#1b1b1b"/><path d="M10,40 L-10,10 M10,40 L-10,70" stroke="#ef3e36" stroke-width="12"/></svg></div>
+  <div class="abs mid type" style="right:150px;top:150px;animation-delay:35.6s">ถูกสร้างมาเพื่อ...</div>
   <div class="abs a slam big" style="right:70px;top:260px;font-size:136px;color:#fff;--r:-3deg;animation-delay:36.9s">เรื่องเดียว</div>
   <div class="abs a pop" style="right:50px;top:520px;--r:3deg;animation-delay:37.9s"><div style="display:flex;align-items:center;gap:10px"><div class="big" style="font-size:136px;color:var(--yellow)">การนอน</div><div class="sticker" style="width:130px" data-moon></div></div></div>
   <div data-star="var(--yellow),100,1320,80"></div><div data-star="var(--red),80,60,960"></div>
@@ -165,6 +188,7 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
 <section class="scene night" data-start="39.88" data-end="99">
   <div class="abs a pop" style="left:120px;top:250px;width:420px;--r:-6deg;animation-delay:39.9s"><img class="sticker float" src="img/box.png" style="width:100%;--r:0deg"></div>
   <div class="abs a pop" style="left:420px;top:330px;width:360px;--r:5deg;animation-delay:40.0s"><img class="sticker float" src="img/bottle.png" style="width:100%;--r:0deg;animation-delay:-1.2s"></div>
+  <div class="abs mid inv type" style="right:120px;top:140px;animation-delay:39.9s">ใครนอนไม่หลับ</div>
   <div class="abs a slam big" style="right:60px;top:240px;font-size:140px;color:var(--yellow);--r:-4deg;animation-delay:40.2s">ลองดูก่อน!</div>
   <div class="abs a slam" style="right:70px;top:520px;--r:4deg;animation-delay:41.0s"><div class="bubble" style="--c:#fff;font-size:60px">ปลดปล่อยนาน <span style="color:var(--blue)">6 ชม.</span></div></div>
   <div class="abs a pop sticker" style="left:1180px;top:700px;width:170px;--r:-10deg;animation-delay:41.4s" data-moon></div>

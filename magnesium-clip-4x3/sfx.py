@@ -44,39 +44,54 @@ def sparkle(n=7, d=0.06):
     return y
 def sting(): y = np.zeros(int(SR * 0.9)); w = whoosh(0.25); y[:len(w)] += w; b = boom(); y[int(.18*SR):int(.18*SR)+len(b)] += b; return y
 def thunk(): d = 0.25; return (sweep(220, 80, d) * env(int(SR * d), 0.001, 0.05) + 0.6 * lowpass(rng.standard_normal(int(SR * d)), 2500) * env(int(SR * d), 0.0005, 0.012))
+def typing(n=8, gap=0.06):
+    y = np.zeros(int(SR * (n * gap + 0.1)))
+    for i in range(n):
+        k = tick(1800 + 300 * (i % 3)) * (0.8 + 0.4 * rng.random()); s0 = int(i * gap * SR); y[s0:s0 + len(k)] += k
+    return y
+def marker(d=0.4):
+    n = int(SR * d); x = rng.standard_normal(n); y = lowpass(x, 3500) - lowpass(x, 900)
+    return y * np.sin(np.linspace(0, np.pi, n)) * 1.8
+def chime():
+    y = np.zeros(int(SR * 2.2))
+    for i, f in enumerate((1046.5, 1318.5, 1568, 2093)):
+        d = ding(f) * 0.5; s0 = int(i * 0.12 * SR); y[s0:s0 + len(d)] += d
+    return y
 def shutter(): a = tick(2500) * 2; y = np.zeros(int(SR * .12)); y[:len(a)] += a; y[int(.06*SR):int(.06*SR)+len(a)] += a * .8; return y
 
 # scene cuts
 for at in [0, 2.86, 7.38, 18.82, 24.26, 27.98, 31.16, 39.88]: add(max(0, at - 0.12), whoosh(), 0.55)
 for at in [11.28, 35.26]: add(at - 0.12, sting(), 0.7)
 # 1 hook
-add(0.05, pop(600), .6); add(0.15, pop(760), .6); add(0.25, boom(), .7); add(1.9, pop(900), .6)
+add(0.0, chime(), .5); add(0.1, pop(600), .5); add(0.2, pop(760), .5); add(0.25, boom(), .6)
+add(0.9, boom(), .8); add(0.9, ding(1318.5), .45); add(1.35, thunk(), .8); add(2.0, typing(9), .45)
 # 2 clock ticks, then the big 6
 for i, at in enumerate(np.arange(3.2, 5.8, 0.32)): add(at, tick(3200 if i % 2 else 2400), .5)
 add(5.88, boom(), .8); add(5.88, ding(), .55); add(6.05, pop(820), .5)
+add(5.3, typing(6), .45)
 # 3 normal magnesium falls off
-add(7.5, pop(650), .5); add(8.8, pop(900), .6); add(10.0, slide(900, 220, .7), .6)
+add(7.5, pop(650), .5); add(8.8, pop(900), .6); add(10.0, slide(900, 220, .7), .6); add(7.6, marker(), .5); add(10.6, typing(10), .4)
 # 4 steady release
-add(11.5, pop(760), .5); add(11.6, pop(620), .5); add(14.8, pop(900), .6); add(14.8, slide(300, 700, 1.6) * np.linspace(.2, 1, int(SR * 1.6)), .35)
+add(12.66, marker(), .5); add(13.8, pop(820), .5); add(11.5, pop(760), .5); add(11.6, pop(620), .5); add(14.8, pop(900), .6); add(14.8, slide(300, 700, 1.6) * np.linspace(.2, 1, int(SR * 1.6)), .35)
 add(17.5, boom(), .7); add(17.5, ding(1568), .5)
 # 5 level stays high
-add(19.0, pop(650), .5); add(19.85, pop(820), .5); add(20.4, slide(250, 900, .6), .5)
+add(18.9, typing(8), .4); add(19.0, pop(650), .5); add(19.85, pop(820), .5); add(20.4, slide(250, 900, .6), .5)
 for i in range(6): add(21.0 + i * 0.4, blip(523.25 * 2 ** (i * 2 / 12)), .5)
 add(22.5, boom(), .75); add(22.5, ding(1760), .5)
 # 6 tiny but multi-coated
-add(24.3, shutter(), .6)
+add(24.3, shutter(), .6); add(25.2, typing(7), .4)
 for i in range(5): add(25.4 + i * 0.3, pop(500 + 120 * i), .6)
 add(25.6, boom(), .6)
 # 7 slow release
-add(28.0, pop(700), .5); add(28.3, sparkle(), .55); add(29.2, pop(950), .5)
+add(28.0, pop(700), .5); add(28.3, sparkle(), .55); add(29.2, pop(950), .5); add(29.1, typing(11), .4)
 # 8 general purpose scatters
 add(31.3, pop(600), .5); add(31.6, boom(), .6)
 for i in range(8): add(31.95 + i * 0.12, pop(1100 - 40 * i), .35)
 add(33.0, slide(500, 300, .3), .5)
 # 9 one target
-add(35.6, pop(650), .5); add(36.55, whoosh(.3), .6); add(36.88, thunk(), .9); add(36.9, boom(), .5); add(37.9, ding(1318.5), .5); add(37.9, pop(820), .5)
+add(35.6, pop(650), .5); add(35.6, typing(9), .4); add(36.55, whoosh(.3), .6); add(36.88, thunk(), .9); add(36.9, boom(), .5); add(37.9, ding(1318.5), .5); add(37.9, pop(820), .5)
 # 10 call to action
-add(39.9, pop(650), .5); add(40.0, pop(780), .5); add(40.2, boom(), .7); add(41.0, ding(1568), .5); add(41.0, sparkle(9), .5); add(41.4, pop(900), .45)
+add(39.9, pop(650), .5); add(39.9, typing(8), .4); add(40.0, pop(780), .5); add(40.2, boom(), .7); add(41.0, ding(1568), .5); add(41.0, sparkle(9), .5); add(41.4, pop(900), .45)
 
 out = out[:int(SR * DUR)]
 out = out / max(1e-9, np.abs(out).max()) * 0.6
