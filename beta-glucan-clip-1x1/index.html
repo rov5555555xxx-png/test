@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>Beta Glucan 1:1</title>
+<style>
+@font-face{font-family:K;font-weight:700;src:url(fonts/kanit-thai-700-normal.woff2) format("woff2");unicode-range:U+0E00-0E7F}
+@font-face{font-family:K;font-weight:700;src:url(fonts/kanit-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:K;font-weight:900;src:url(fonts/kanit-thai-900-normal.woff2) format("woff2");unicode-range:U+0E00-0E7F}
+@font-face{font-family:K;font-weight:900;src:url(fonts/kanit-latin-900-normal.woff2) format("woff2")}
+:root{--red:#d4142b;--deep:#9e0d1c;--dark:#5c0710;--pink:#fde8ea;--ink:#2b0b0f}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:1440px;overflow:hidden;background:#000;font-family:K,sans-serif}
+#stage{position:relative;width:1440px;height:1440px;overflow:hidden}
+.scene{position:absolute;inset:0;visibility:hidden;transform-origin:50% 50%}
+.light{background:radial-gradient(circle at 85% 12%,#ffd9de 0,transparent 38%),radial-gradient(circle at 10% 90%,#ffdfe3 0,transparent 40%),#fff7f7}
+.redbg{background:radial-gradient(circle at 50% 42%,#ef3a4c 0,#c40f25 38%,#7a0814 100%)}
+.wave{position:absolute;left:0;right:0;bottom:0;height:220px}
+.abs{position:absolute}
+.row{position:absolute;left:0;right:0;display:flex;justify-content:center;align-items:center}
+.title{font-weight:900;color:var(--deep);line-height:1.15;text-align:center;white-space:nowrap}
+.title.w{color:#fff;text-shadow:0 8px 24px rgba(60,0,8,.35)}
+.pill{display:inline-block;padding:14px 50px 20px;border-radius:999px;background:var(--red);color:#fff;font-weight:900;font-size:60px;white-space:nowrap;box-shadow:0 14px 30px rgba(150,0,20,.3)}
+.pill.w{background:#fff;color:var(--deep)}
+.card{background:#fff;border-radius:40px;box-shadow:0 22px 50px rgba(120,0,15,.16);border:3px solid #f6d3d6}
+.icard{width:560px;height:440px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.icard .lbl{font-weight:900;font-size:62px;color:var(--deep)}
+.ic{width:200px;height:200px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 14px #fde1e4}
+.prod{filter:drop-shadow(0 30px 40px rgba(60,0,10,.35))}
+
+.a{animation-fill-mode:both;animation-timing-function:cubic-bezier(.2,.9,.3,1.2)}
+.pop{animation-name:pop;animation-duration:.5s}
+.rise{animation-name:rise;animation-duration:.6s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+.slam{animation-name:slam;animation-duration:.45s}
+.wipe{animation:wipe .6s cubic-bezier(.3,.8,.3,1) both}
+.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .6s ease-out both}
+.float{animation:float 3s ease-in-out infinite}
+.drift{animation:drift 4s ease-in-out infinite}
+.ring{animation:ring 2s ease-out infinite}
+.spin{animation:spin 18s linear infinite}
+@keyframes pop{0%{transform:scale(0);opacity:0}60%{transform:scale(1.08);opacity:1}100%{transform:scale(1)}}
+@keyframes rise{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes slam{0%{transform:scale(2.2);opacity:0}60%{transform:scale(.95);opacity:1}100%{transform:scale(1)}}
+@keyframes wipe{from{clip-path:inset(-20% 100% -20% -5%)}to{clip-path:inset(-20% -5% -20% -5%)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(18px,-22px) rotate(20deg)}}
+@keyframes ring{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-14px)}40%{transform:translateX(12px)}60%{transform:translateX(-8px)}80%{transform:translateX(5px)}}
+@keyframes flyout{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(.4);opacity:0}}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- 1 hook 0-4.22 -->
+<section class="scene redbg" data-start="0" data-end="4.22">
+  <div class="abs ring" style="left:320px;top:420px;width:800px;height:800px;border-radius:50%;border:6px solid rgba(255,255,255,.35)"></div>
+  <div class="abs ring" style="left:320px;top:420px;width:800px;height:800px;border-radius:50%;border:6px solid rgba(255,255,255,.35);animation-delay:-1s"></div>
+  <div class="row" style="top:110px"><div class="title w a rise" style="font-size:150px;animation-delay:.1s">บูสต์ภูมิคุ้มกัน</div></div>
+  <div class="row" style="top:340px"><div class="a pop" style="animation-delay:1.9s"><span class="pill w" style="font-size:66px">ครบเครื่องที่สุดตอนนี้</span></div></div>
+  <div class="row" style="top:560px"><div class="a pop" style="animation-delay:.35s"><img class="prod float" src="img/duo.png" style="width:1040px"></div></div>
+</section>
+
+<!-- 2 four roles 4.22-9.34 -->
+<section class="scene light" data-start="4.22" data-end="9.34">
+  <div class="row" style="top:80px"><div class="title a rise" style="font-size:84px;animation-delay:4.25s">ครบในเม็ดเดียว</div></div>
+  <div class="abs a pop card icard" style="left:120px;top:250px;animation-delay:4.35s"><div class="ic" data-icon="catch"></div><div class="lbl">ดักจับเชื้อโรค</div></div>
+  <div class="abs a pop card icard" style="left:760px;top:250px;animation-delay:6.3s"><div class="ic" data-icon="train"></div><div class="lbl">ฝึกฝนภูมิ</div></div>
+  <div class="abs a pop card icard" style="left:120px;top:770px;animation-delay:7.2s"><div class="ic" data-icon="boost"></div><div class="lbl">บูสต์ภูมิ</div></div>
+  <div class="abs a pop card icard" style="left:760px;top:770px;animation-delay:8.2s"><div class="ic" data-icon="speed"></div><div class="lbl">เร่งสร้างภูมิ</div></div>
+  <svg class="wave" viewBox="0 0 1440 220" preserveAspectRatio="none"><path d="M0,150 C360,70 720,230 1440,110 L1440,220 L0,220 Z" fill="#d4142b"/></svg>
+</section>
+
+<!-- 3 innovation 9.34-13.3 -->
+<section class="scene light" data-start="9.34" data-end="13.3">
+  <div class="abs spin" style="left:270px;top:330px;width:900px;height:900px;border-radius:50%;border:4px dashed #f2b3ba"></div>
+  <div class="row" style="top:380px"><div class="a pop" style="animation-delay:9.6s"><svg width="760" height="860" viewBox="0 0 380 430"><path d="M190,10 L360,70 L360,200 C360,320 280,390 190,420 C100,390 20,320 20,200 L20,70 Z" fill="#d4142b" opacity=".12" stroke="#d4142b" stroke-width="6"/></svg></div></div>
+  <div class="row" style="top:500px"><div class="a pop" style="animation-delay:9.75s"><img class="prod float" src="img/bottle.png" style="width:440px"></div></div>
+  <div class="row" style="top:90px"><div class="title a slam" style="font-size:160px;animation-delay:9.7s">นวัตกรรม</div></div>
+  <div class="row" style="top:300px"><div class="a pop" style="animation-delay:11.5s"><span class="pill">สร้างมาเพื่อภูมิคุ้มกัน</span></div></div>
+</section>
+
+<!-- 4 outside threats 13.3-16.8 -->
+<section class="scene light" data-start="13.3" data-end="16.8" style="background:linear-gradient(#f3eeee,#e7dcdc)">
+  <div class="abs" data-germs></div>
+  <div class="row" style="top:120px"><div class="title a rise" style="font-size:96px;color:var(--ink);animation-delay:13.4s">ออกไปข้างนอกทุกวัน</div></div>
+  <div class="abs a slam" style="left:200px;top:560px;animation-delay:15.2s"><span class="pill" style="background:#6b6b6b;font-size:90px">ฝุ่น</span></div>
+  <div class="abs a slam" style="left:700px;top:760px;animation-delay:15.8s"><span class="pill" style="font-size:90px">เชื้อโรค</span></div>
+</section>
+
+<!-- 5 one capsule a day 16.8-21.12 -->
+<section class="scene redbg" data-start="16.8" data-end="21.12">
+  <div class="row" style="top:110px"><div class="title w a rise" style="font-size:90px;animation-delay:16.85s">แค่วันละ</div></div>
+  <div class="abs a slam" style="left:300px;top:240px;animation-delay:17.0s"><div class="title w" style="font-size:520px;line-height:1">1</div></div>
+  <div class="abs a slam" style="left:640px;top:460px;animation-delay:17.15s"><div class="title w" style="font-size:150px">เม็ด</div></div>
+  <div class="abs a pop" style="left:640px;top:215px;animation-delay:17.2s"><svg width="420" height="180" viewBox="0 0 420 180" class="float"><rect x="10" y="10" width="400" height="160" rx="80" fill="#fff"/><path d="M210,10 L330,10 A80,80 0 0 1 330,170 L210,170 Z" fill="#40a5b3"/><rect x="10" y="10" width="400" height="160" rx="80" fill="none" stroke="#5c0710" stroke-width="8"/></svg></div>
+  <div class="row" style="top:830px"><div class="a pop" style="animation-delay:17.95s"><span class="pill w" style="font-size:72px">เม็ดเดียวก็พอ</span></div></div>
+  <div class="row" style="top:1050px"><div class="a rise" style="animation-delay:19.8s;display:flex;align-items:center;gap:24px"><svg width="110" height="110" viewBox="0 0 200 200"><path d="M130,20 A85,85 0 1 0 180,150 A70,70 0 1 1 130,20 Z" fill="#ffd54a"/></svg><div class="title w" style="font-size:70px">หน้าที่คุณ แค่พักผ่อนให้พอ</div></div></div>
+</section>
+
+<!-- 6 let it boost 21.12-23.42 -->
+<section class="scene light" data-start="21.12" data-end="23.42">
+  <div class="abs" style="left:470px;top:380px" data-arrows></div>
+  <div class="row" style="top:420px"><div class="a pop" style="animation-delay:21.15s"><img class="prod float" src="img/bottle.png" style="width:470px"></div></div>
+  <div class="row" style="top:110px"><div class="title a slam" style="font-size:150px;animation-delay:21.3s">ที่เหลือ ให้ตัวนี้บูสต์</div></div>
+</section>
+
+<!-- 7 research groups 23.42-28.0 -->
+<section class="scene light" data-start="23.42" data-end="28.0">
+  <div class="row" style="top:110px"><div class="title a slam" style="font-size:140px;animation-delay:23.5s">งานวิจัยแน่น</div></div>
+  <div class="row" style="top:300px"><div class="a pop" style="animation-delay:24.2s"><span class="pill" style="font-size:52px">ทดสอบมาแล้วหลายกลุ่ม</span></div></div>
+  <div class="abs a pop card" style="left:110px;top:520px;width:580px;height:360px;animation-delay:25.6s" data-person="kid">เด็ก</div>
+  <div class="abs a pop card" style="left:750px;top:520px;width:580px;height:360px;animation-delay:26.2s" data-person="adult">ผู้ใหญ่</div>
+  <div class="abs a pop card" style="left:110px;top:930px;width:580px;height:360px;animation-delay:26.8s" data-person="elder">ผู้สูงอายุ</div>
+  <div class="abs a pop card" style="left:750px;top:930px;width:580px;height:360px;animation-delay:27.4s" data-person="athlete">นักกีฬา</div>
+</section>
+
+<!-- 8 tested before launch 28.0-34.56 -->
+<section class="scene redbg" data-start="28.0" data-end="34.56">
+  <div class="row" style="top:300px"><div class="a pop" style="animation-delay:28.1s"><svg width="440" height="440" viewBox="0 0 220 220"><circle cx="110" cy="110" r="100" fill="#fff"/><path class="draw" pathLength="1" d="M58,114 L96,150 L164,76" fill="none" stroke="#d4142b" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" style="animation-delay:28.4s"/></svg></div></div>
+  <div class="row" style="top:820px"><div class="title w a rise" style="font-size:130px;animation-delay:28.3s">ทดสอบมาหมดแล้ว</div></div>
+  <div class="row" style="top:1020px"><div class="a pop" style="animation-delay:30.4s"><span class="pill w" style="font-size:66px">ก่อนวางขายจริง</span></div></div>
+  <div class="row" style="top:110px"><div class="title w a wipe" style="font-size:72px;opacity:.9;animation-delay:31.0s">วิจัยแน่นจริง</div></div>
+</section>
+
+<!-- 9 unique extracts 34.56-39.78 -->
+<section class="scene light" data-start="34.56" data-end="39.78">
+  <div class="row" style="top:110px"><div class="title a slam" style="font-size:132px;animation-delay:35.3s">สารสกัดไม่ซ้ำใคร</div></div>
+  <div class="row" style="top:360px;gap:30px;flex-wrap:wrap;padding:0 120px">
+    <div class="a pop card" style="padding:26px 46px;font-weight:900;font-size:62px;color:var(--deep);animation-delay:35.8s">Wellmune<sup style="font-size:30px">®</sup></div>
+    <div class="a pop card" style="padding:26px 46px;font-weight:900;font-size:62px;color:#1d4f9c;animation-delay:36.05s">Albion<sup style="font-size:30px">®</sup> Zinc</div>
+    <div class="a pop card" style="padding:26px 46px;font-weight:900;font-size:62px;color:#d4892a;animation-delay:36.3s">Liposovit<sup style="font-size:30px">®</sup>-C</div>
+    <div class="a pop card" style="padding:26px 46px;font-weight:900;font-size:62px;color:#d4892a;animation-delay:36.55s">Liposovit<sup style="font-size:30px">®</sup>-D3</div>
+  </div>
+  <div class="row" style="top:820px;gap:40px">
+    <div class="a pop" style="animation-delay:37.9s"><span class="pill" style="font-size:72px">✓ มาตรฐาน</span></div>
+    <div class="a pop" style="animation-delay:38.6s"><span class="pill" style="font-size:72px">✓ คุณภาพ</span></div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 220" preserveAspectRatio="none"><path d="M0,120 C400,210 900,40 1440,140 L1440,220 L0,220 Z" fill="#d4142b"/></svg>
+</section>
+
+<!-- 10 stronger immunity 39.78-43.98 -->
+<section class="scene redbg" data-start="39.78" data-end="43.98">
+  <div class="abs" data-germs="red"></div>
+  <div class="row" style="top:350px"><div class="a pop" style="animation-delay:40.0s"><svg width="620" height="700" viewBox="0 0 380 430" class="float"><path d="M190,10 L360,70 L360,200 C360,320 280,390 190,420 C100,390 20,320 20,200 L20,70 Z" fill="#fff" stroke="#5c0710" stroke-width="8"/><path d="M190,120 L190,300 M100,210 L280,210" stroke="#d4142b" stroke-width="44" stroke-linecap="round"/></svg></div></div>
+  <div class="row" style="top:100px"><div class="title w a slam" style="font-size:140px;animation-delay:40.0s">ภูมิเก่งกว่าเดิม</div></div>
+  <div class="row" style="top:1110px"><div class="a pop" style="animation-delay:41.9s"><span class="pill w" style="font-size:76px">ต่อสู้เก่งขึ้น</span></div></div>
+</section>
+
+<!-- 11 recap 43.98-47.5 -->
+<section class="scene light" data-start="43.98" data-end="47.5">
+  <div class="row" style="top:130px"><div class="title a rise" style="font-size:110px;animation-delay:44.0s">ครบทั้ง 4 อย่าง</div></div>
+  <div class="row" style="top:440px;gap:36px">
+    <div class="a pop card" style="width:290px;height:480px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;animation-delay:44.1s"><div class="ic" data-icon="catch" style="width:170px;height:170px"></div><div class="title" style="font-size:44px">ดักจับ<br>เชื้อโรค</div></div>
+    <div class="a pop card" style="width:290px;height:480px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;animation-delay:44.9s"><div class="ic" data-icon="train" style="width:170px;height:170px"></div><div class="title" style="font-size:44px">ฝึกฝน<br>ภูมิ</div></div>
+    <div class="a pop card" style="width:290px;height:480px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;animation-delay:45.7s"><div class="ic" data-icon="boost" style="width:170px;height:170px"></div><div class="title" style="font-size:44px">บูสต์<br>ภูมิ</div></div>
+    <div class="a pop card" style="width:290px;height:480px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;animation-delay:46.5s"><div class="ic" data-icon="speed" style="width:170px;height:170px"></div><div class="title" style="font-size:44px">เร่ง<br>สร้างภูมิ</div></div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 220" preserveAspectRatio="none"><path d="M0,150 C360,70 720,230 1440,110 L1440,220 L0,220 Z" fill="#d4142b"/></svg>
+</section>
+
+<!-- 12 CTA 47.5-end -->
+<section class="scene redbg" data-start="47.5" data-end="99">
+  <div class="abs ring" style="left:320px;top:470px;width:800px;height:800px;border-radius:50%;border:6px solid rgba(255,255,255,.3)"></div>
+  <div class="row" style="top:90px"><div class="title w a rise" style="font-size:70px;animation-delay:47.6s">แนะนำตัวนี้เลย</div></div>
+  <div class="row" style="top:190px"><div class="title w a slam" style="font-size:112px;animation-delay:47.9s">Beta Glucan Immu Plus</div></div>
+  <div class="row" style="top:380px"><div class="a pop" style="animation-delay:48.4s"><span class="pill w" style="font-size:56px">CEO FACTORY</span></div></div>
+  <div class="row" style="top:560px"><div class="a pop" style="animation-delay:48.1s"><img class="prod float" src="img/duo.png" style="width:900px"></div></div>
+  <div class="row" style="top:1190px"><div class="a slam" style="animation-delay:51.4s"><span class="pill" style="background:#ffd54a;color:var(--dark);font-size:84px;padding:14px 70px 22px">ครบ จบ เรื่องภูมิ</span></div></div>
+</section>
+</div>
+
+<script>
+const ICONS={
+ catch:`<svg width="62%" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><circle cx="50" cy="50" r="18" fill="#fff" stroke="none"/>${[...Array(8)].map((_,i)=>{const a=i*Math.PI/4;return `<line x1="${50+20*Math.cos(a)}" y1="${50+20*Math.sin(a)}" x2="${50+30*Math.cos(a)}" y2="${50+30*Math.sin(a)}"/><circle cx="${50+32*Math.cos(a)}" cy="${50+32*Math.sin(a)}" r="3.5" fill="#fff"/>`}).join("")}<circle cx="50" cy="50" r="45" stroke-dasharray="10 7"/></svg>`,
+ train:`<svg width="70%" viewBox="0 0 100 100" fill="#fff"><rect x="8" y="34" width="12" height="32" rx="4"/><rect x="20" y="26" width="12" height="48" rx="4"/><rect x="32" y="45" width="36" height="10" rx="3"/><rect x="68" y="26" width="12" height="48" rx="4"/><rect x="80" y="34" width="12" height="32" rx="4"/></svg>`,
+ boost:`<svg width="62%" viewBox="0 0 100 100" fill="#fff"><path d="M50,6 L86,46 L64,46 L64,94 L36,94 L36,46 L14,46 Z"/></svg>`,
+ speed:`<svg width="66%" viewBox="0 0 100 100" fill="#fff"><path d="M8,20 L48,50 L8,80 Z"/><path d="M48,20 L88,50 L48,80 Z"/><rect x="88" y="20" width="8" height="60" rx="3"/></svg>`};
+document.querySelectorAll("[data-icon]").forEach(el=>el.innerHTML=ICONS[el.dataset.icon]);
+
+const PEOPLE={
+ kid:`<circle cx="60" cy="52" r="26"/><rect x="38" y="84" width="44" height="58" rx="20"/>`,
+ adult:`<circle cx="60" cy="34" r="24"/><rect x="32" y="64" width="56" height="84" rx="24"/>`,
+ elder:`<circle cx="52" cy="36" r="23"/><rect x="26" y="64" width="52" height="82" rx="24"/><path d="M92,74 L96,148" stroke="#d4142b" stroke-width="8" stroke-linecap="round"/><path d="M84,74 Q92,64 100,72" stroke="#d4142b" stroke-width="8" fill="none" stroke-linecap="round"/>`,
+ athlete:`<circle cx="70" cy="26" r="20"/><path d="M62,50 L48,92 L26,120 M48,92 L74,110 L68,146 M60,60 L36,70 M64,58 L92,74" stroke="#d4142b" stroke-width="16" stroke-linecap="round" fill="none"/>`};
+document.querySelectorAll("[data-person]").forEach(el=>{const k=el.dataset.person,t=el.textContent;
+  el.style.display="flex";el.style.alignItems="center";el.style.gap="36px";el.style.padding="0 50px";
+  el.innerHTML=`<div style="width:190px;height:190px;border-radius:50%;background:#fde1e4;display:flex;align-items:center;justify-content:center;flex:none"><svg width="130" height="160" viewBox="0 0 120 160" fill="#d4142b">${PEOPLE[k]}</svg></div><div class="title" style="font-size:70px;text-align:left">${t}</div>`});
+
+// floating germs and dust
+document.querySelectorAll("[data-germs]").forEach(el=>{const red=el.dataset.germs==="red";let h="";
+  const spots=[[120,300,90],[1180,260,120],[980,520,70],[300,980,110],[1150,1050,90],[620,1220,70],[80,700,60],[520,430,50],[1260,800,55]];
+  spots.forEach(([x,y,r],i)=>{const col=red?"rgba(255,255,255,.22)":(i%3==0?"#9a9a9a":"#e04a5b");
+    let s="";for(let k=0;k<10;k++){const a=k*Math.PI/5;s+=`<line x1="${50+30*Math.cos(a)}" y1="${50+30*Math.sin(a)}" x2="${50+44*Math.cos(a)}" y2="${50+44*Math.sin(a)}" stroke="${col}" stroke-width="5" stroke-linecap="round"/><circle cx="${50+46*Math.cos(a)}" cy="${50+46*Math.sin(a)}" r="4" fill="${col}"/>`}
+    h+=`<svg class="drift" style="position:absolute;left:${x}px;top:${y}px;animation-delay:${-i*0.7}s;opacity:${red?1:.85}" width="${r*2}" height="${r*2}" viewBox="0 0 100 100">${s}<circle cx="50" cy="50" r="30" fill="${col}"/></svg>`});
+  el.innerHTML=h});
+// rising arrows behind the bottle
+document.querySelectorAll("[data-arrows]").forEach(el=>{let h="";[[0,0],[420,60],[60,420],[400,480],[220,-60]].forEach(([x,y],i)=>{
+  h+=`<svg class="a rise" style="position:absolute;left:${x}px;top:${y}px;animation-delay:${21.5+i*0.18}s" width="90" height="120" viewBox="0 0 100 130"><path d="M50,4 L92,54 L66,54 L66,126 L34,126 L34,54 L8,54 Z" fill="#d4142b" opacity=".85"/></svg>`});el.innerHTML=h});
+
+const scenes=[...document.querySelectorAll(".scene")];
+const inWin=(el,t)=>t>=+el.dataset.start&&t<+el.dataset.end;
+window.renderAt=t=>{
+  for(const a of document.getAnimations()){a.pause();a.currentTime=t*1000}
+  for(const s of scenes){const on=inWin(s,t);s.style.visibility=on?"visible":"hidden";
+    if(on){const k=Math.min(1,(t-s.dataset.start)/0.25),e=1-Math.pow(1-k,3);s.style.transform=`scale(${1.04-0.04*e})`}}
+};
+window.ready=document.fonts.ready.then(()=>Promise.all([...document.images].map(i=>i.decode()))).then(()=>renderAt(0));
+</script>
+</body>
+</html>
