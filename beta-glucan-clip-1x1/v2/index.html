@@ -55,7 +55,7 @@ html,body{width:1440px;height:1440px;overflow:hidden;background:#000;font-family
 .drift{animation:drift 4s ease-in-out infinite}
 @keyframes pop{0%{transform:scale(0) rotate(var(--r,0deg));opacity:0}60%{transform:scale(1.08) rotate(var(--r,0deg));opacity:1}100%{transform:scale(1) rotate(var(--r,0deg))}}
 @keyframes rise{from{transform:translateY(70px) rotate(var(--r,0deg));opacity:0}to{transform:translateY(0) rotate(var(--r,0deg));opacity:1}}
-@keyframes slam{0%{transform:scale(2.2) rotate(var(--r,0deg));opacity:0}60%{transform:scale(.95) rotate(var(--r,0deg));opacity:1}100%{transform:scale(1) rotate(var(--r,0deg))}}
+@keyframes slam{0%{transform:scale(1.18) rotate(var(--r,0deg));opacity:0;filter:blur(8px)}55%{transform:scale(.97) rotate(var(--r,0deg));opacity:1;filter:blur(0)}100%{transform:scale(1) rotate(var(--r,0deg))}}
 @keyframes inL{from{transform:translateX(-1000px) rotate(-14deg);opacity:0}to{transform:translateX(0) rotate(var(--r,0deg));opacity:1}}
 @keyframes inR{from{transform:translateX(1000px) rotate(14deg);opacity:0}to{transform:translateX(0) rotate(var(--r,0deg));opacity:1}}
 @keyframes drop{0%{transform:translateY(-900px) rotate(-60deg)}55%{transform:translateY(0) rotate(0)}70%{transform:translateY(-70px) rotate(4deg)}85%{transform:translateY(0) rotate(0)}93%{transform:translateY(-16px)}100%{transform:translateY(0)}}
