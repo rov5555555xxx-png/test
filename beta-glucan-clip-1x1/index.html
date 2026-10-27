@@ -26,7 +26,9 @@ html,body{width:1440px;height:1440px;overflow:hidden;background:#000;font-family
 .icard{width:560px;height:440px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
 .icard .lbl{font-weight:900;font-size:62px;color:var(--deep)}
 .ic{width:200px;height:200px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 14px #fde1e4}
-.prod{filter:drop-shadow(0 30px 40px rgba(60,0,10,.35))}
+.prod{filter:drop-shadow(0 16px 22px rgba(60,0,10,.22))}
+.gshadow{position:absolute;height:70px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(70,0,12,.42),rgba(70,0,12,0) 70%)}
+.redbg .gshadow{background:radial-gradient(ellipse at center,rgba(30,0,4,.55),rgba(30,0,4,0) 70%)}
 
 .a{animation-fill-mode:both;animation-timing-function:cubic-bezier(.2,.9,.3,1.2)}
 .pop{animation-name:pop;animation-duration:.5s}
@@ -60,7 +62,8 @@ html,body{width:1440px;height:1440px;overflow:hidden;background:#000;font-family
   <div class="abs ring" style="left:320px;top:420px;width:800px;height:800px;border-radius:50%;border:6px solid rgba(255,255,255,.35);animation-delay:-1s"></div>
   <div class="row" style="top:110px"><div class="title w a rise" style="font-size:150px;animation-delay:.1s">บูสต์ภูมิคุ้มกัน</div></div>
   <div class="row" style="top:340px"><div class="a pop" style="animation-delay:1.9s"><span class="pill w" style="font-size:66px">ครบเครื่องที่สุดตอนนี้</span></div></div>
-  <div class="row" style="top:560px"><div class="a pop" style="animation-delay:.35s"><img class="prod float" src="img/duo.png" style="width:1040px"></div></div>
+  <div class="gshadow a pop" style="left:240px;top:1300px;width:960px;animation-delay:.35s"></div>
+  <div class="row" style="top:560px"><div class="a pop" style="animation-delay:.35s"><img class="prod float" src="img/duo.png" style="width:1000px"></div></div>
 </section>
 
 <!-- 2 four roles 4.22-9.34 -->
@@ -77,6 +80,7 @@ html,body{width:1440px;height:1440px;overflow:hidden;background:#000;font-family
 <section class="scene light" data-start="9.34" data-end="13.3">
   <div class="abs spin" style="left:270px;top:330px;width:900px;height:900px;border-radius:50%;border:4px dashed #f2b3ba"></div>
   <div class="row" style="top:380px"><div class="a pop" style="animation-delay:9.6s"><svg width="760" height="860" viewBox="0 0 380 430"><path d="M190,10 L360,70 L360,200 C360,320 280,390 190,420 C100,390 20,320 20,200 L20,70 Z" fill="#d4142b" opacity=".12" stroke="#d4142b" stroke-width="6"/></svg></div></div>
+  <div class="gshadow a pop" style="left:500px;top:1180px;width:440px;animation-delay:9.75s"></div>
   <div class="row" style="top:500px"><div class="a pop" style="animation-delay:9.75s"><img class="prod float" src="img/bottle.png" style="width:440px"></div></div>
   <div class="row" style="top:90px"><div class="title a slam" style="font-size:160px;animation-delay:9.7s">นวัตกรรม</div></div>
   <div class="row" style="top:300px"><div class="a pop" style="animation-delay:11.5s"><span class="pill">สร้างมาเพื่อภูมิคุ้มกัน</span></div></div>
@@ -103,6 +107,7 @@ html,body{width:1440px;height:1440px;overflow:hidden;background:#000;font-family
 <!-- 6 let it boost 21.12-23.42 -->
 <section class="scene light" data-start="21.12" data-end="23.42">
   <div class="abs" style="left:470px;top:380px" data-arrows></div>
+  <div class="gshadow a pop" style="left:480px;top:1150px;width:480px;animation-delay:21.15s"></div>
   <div class="row" style="top:420px"><div class="a pop" style="animation-delay:21.15s"><img class="prod float" src="img/bottle.png" style="width:470px"></div></div>
   <div class="row" style="top:110px"><div class="title a slam" style="font-size:150px;animation-delay:21.3s">ที่เหลือ ให้ตัวนี้บูสต์</div></div>
 </section>
@@ -167,7 +172,8 @@ html,body{width:1440px;height:1440px;overflow:hidden;background:#000;font-family
   <div class="row" style="top:90px"><div class="title w a rise" style="font-size:70px;animation-delay:47.6s">แนะนำตัวนี้เลย</div></div>
   <div class="row" style="top:190px"><div class="title w a slam" style="font-size:112px;animation-delay:47.9s">Beta Glucan Immu Plus</div></div>
   <div class="row" style="top:380px"><div class="a pop" style="animation-delay:48.4s"><span class="pill w" style="font-size:56px">CEO FACTORY</span></div></div>
-  <div class="row" style="top:560px"><div class="a pop" style="animation-delay:48.1s"><img class="prod float" src="img/duo.png" style="width:900px"></div></div>
+  <div class="gshadow a pop" style="left:300px;top:1165px;width:840px;animation-delay:48.1s"></div>
+  <div class="row" style="top:540px"><div class="a pop" style="animation-delay:48.1s"><img class="prod float" src="img/duo.png" style="width:860px"></div></div>
   <div class="row" style="top:1190px"><div class="a slam" style="animation-delay:51.4s"><span class="pill" style="background:#ffd54a;color:var(--dark);font-size:84px;padding:14px 70px 22px">ครบ จบ เรื่องภูมิ</span></div></div>
 </section>
 </div>
