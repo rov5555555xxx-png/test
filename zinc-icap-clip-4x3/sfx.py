@@ -69,12 +69,18 @@ add(5.0, pop(600), .25); add(5.2, pop(760), .25); add(6.0, slide(300, 900, .5), 
 add(10.2, slide(300, 500, .5), .25); add(10.5, slide(300, 1100, 1.4), .3); add(11.9, ding(1760), .3)
 # 4 15 mg
 add(12.45, boom(), .55); add(13.1, pop(820), .3)
-# 5 tech + 6 hrs
-add(14.4, thunk(), .4); add(14.9, pop(700), .3); add(16.9, sparkle(9), .22)
-for i, at in enumerate(np.arange(18.1, 19.5, 0.23)): add(at, tick(3200 if i % 2 else 2400), .35)
-add(18.0, pop(760), .3); add(19.5, ding(1568), .35)
-# 6 quality people
-add(20.1, thunk(), .35); add(20.6, boom(), .45); add(22.4, pop(820), .28); add(23.3, pop(900), .28)
+# 5 capsule splits, pellet cross-section, release timeline
+add(14.4, thunk(), .4); add(14.5, pop(600), .28); add(14.8, whoosh(.3), .22)
+add(15.5, thunk(), .35); add(15.65, sparkle(9, .05), .22)
+add(16.8, whoosh(.35), .3); add(17.0, pop(700), .3)
+for i, at in enumerate([17.15, 17.35, 17.55]): add(at, blip(784 * 2 ** (i * 4 / 12)), .28)
+add(17.25, pop(820), .22); add(17.7, pop(900), .22)
+add(18.1, slide(300, 900, 1.5), .22)
+for i in range(1, 7): add(18.1 + i * .25, blip(1046.5), .2)
+add(19.3, boom(), .45); add(19.3, ding(1568), .3)
+# 6 spotlight on the bottle, glass spec cards
+add(19.85, tick(1500), .7); add(20.0, slide(200, 600, .9), .25); add(20.6, boom(), .45); add(20.9, sparkle(7), .2)
+for at in (21.6, 22.4, 23.3): add(at - .05, whoosh(.25), .22); add(at + .15, pop(820), .25)
 # 7 quality focus
 add(24.4, boom(), .45); add(25.0, sparkle(7), .22); add(26.9, ding(1318.5), .35); add(27.0, pop(820), .25)
 # 8 CTA

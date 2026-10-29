@@ -68,6 +68,15 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
 @keyframes drip{0%{transform:translate(0,0) scale(.3);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1);opacity:0}}
 @keyframes flash{0%{opacity:0}30%{opacity:.8}100%{opacity:0}}
 @keyframes vis{0%,100%{opacity:1}}
+@keyframes splitL{to{transform:translateX(-120px) rotate(-10deg)}}
+@keyframes splitR{to{transform:translateX(120px) rotate(10deg)}}
+@keyframes capmove{to{transform:translateX(-380px) scale(.62)}}
+@keyframes spill{0%{transform:translate(0,0) scale(.2);opacity:0}25%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1);opacity:1}}
+@keyframes lighton{0%{opacity:0}30%{opacity:.9}40%{opacity:.3}55%{opacity:1}100%{opacity:1}}
+@keyframes riseup{from{transform:translateY(320px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes cardin{from{transform:translateX(420px);opacity:0}to{transform:translateX(0);opacity:1}}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.04));border:1.5px solid rgba(255,255,255,.22);border-radius:26px;box-shadow:0 20px 40px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.25)}
+.gico{width:84px;height:84px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#fff1cf,#c9a464 55%,#7d5c2c);color:#1a1408;box-shadow:0 8px 18px rgba(0,0,0,.5)}
 </style>
 </head>
 <body>
@@ -127,30 +136,56 @@ html,body{width:1440px;height:1080px;overflow:hidden;background:#000;font-family
   <div class="row" style="top:640px;gap:40px"><div class="a pop" style="animation-delay:13.1s"><span class="chip dark" style="font-size:50px">ปริมาณเท่าสูตรเดิม</span></div></div>
 </section>
 
-<!-- 5 modern production + coating tech 14.36-19.82 -->
-<section class="scene light" data-start="14.36" data-end="19.82">
-  <div class="row" style="top:56px"><div class="t ink a slam" style="font-size:88px;animation-delay:14.4s">ผลิตแบบทันสมัยขึ้น</div></div>
-  <div class="row" style="top:180px"><div class="t a rise" style="font-size:50px;color:#8a6a35;animation-delay:14.7s">iCAP™ Pellet Technology</div></div>
-  <div class="abs a pop" style="left:90px;top:300px;width:760px;height:520px;animation-delay:14.9s;border-radius:30px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.25)"><img class="kb" src="img/capsule_art.jpg" style="width:100%;height:100%;object-fit:cover;animation-delay:14.9s;animation-duration:5s"></div>
-    <div class="abs a pop" style="left:110px;top:860px;animation-delay:16.9s"><span class="chip" style="background:#18181a;color:#fff;font-size:50px">เคลือบซิงค์ไว้ ค่อยๆ ปลดปล่อย</span></div>
-  <div class="abs a pop" style="left:900px;top:300px;animation-delay:18.0s">
-    <svg width="440" height="440" viewBox="0 0 220 220" style="position:absolute;left:0;top:0">
-      <defs><linearGradient id="g6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dcaa"/><stop offset=".5" stop-color="#a8844a"/><stop offset="1" stop-color="#f0d9a6"/></linearGradient></defs>
-      <circle cx="110" cy="110" r="100" fill="#141416"/>
-      <circle class="draw" pathLength="1" cx="110" cy="110" r="92" fill="none" stroke="url(#g6)" stroke-width="10" stroke-linecap="round" style="transform:rotate(-90deg);transform-origin:110px 110px;animation-delay:18.1s;animation-duration:1.4s"/>
+<!-- 5 modern production + coating tech 14.36-19.82: capsule splits, pellet cross-section, 6-hour release timeline -->
+<section class="scene" data-start="14.36" data-end="19.82">
+  <div class="abs" data-dust="24"></div>
+  <div class="row" style="top:40px"><div class="t metal a slam" style="font-size:84px;animation-delay:14.4s">ผลิตแบบทันสมัยขึ้น</div></div>
+  <div class="row" style="top:150px"><div class="t goldt wipe" style="font-size:48px;animation-delay:14.8s">iCAP™ Pellet Technology</div></div>
+  <div class="abs" style="left:220px;top:300px;width:1000px;height:400px;animation:capmove .8s cubic-bezier(.3,.8,.3,1) 16.8s both">
+    <div class="halo" style="left:200px;top:-100px;width:600px;height:600px"></div>
+    <div class="abs a pop" style="left:140px;top:100px;animation-delay:14.5s"><div style="animation:splitL .7s cubic-bezier(.3,.8,.3,1) 15.5s both;transform-origin:100% 50%">
+      <svg width="360" height="200" viewBox="0 0 360 200"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".25"/></linearGradient><radialGradient id="pb" cx=".35" cy=".3"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#e2e2e6"/><stop offset="1" stop-color="#9a9aa2"/></radialGradient></defs>
+        <g fill="url(#pb)"><circle cx="110" cy="120" r="26"/><circle cx="160" cy="80" r="24"/><circle cx="170" cy="140" r="27"/><circle cx="225" cy="105" r="25"/><circle cx="270" cy="150" r="24"/><circle cx="280" cy="65" r="22"/><circle cx="325" cy="110" r="24"/><circle cx="70" cy="85" r="22"/></g>
+        <path d="M100,4 H356 V196 H100 A96,96 0 0 1 100,4 Z" fill="url(#gl)" stroke="rgba(255,255,255,.75)" stroke-width="4"/></svg></div></div>
+    <div class="abs a pop" style="left:500px;top:100px;animation-delay:14.5s"><div style="animation:splitR .7s cubic-bezier(.3,.8,.3,1) 15.5s both;transform-origin:0 50%">
+      <svg width="360" height="200" viewBox="0 0 360 200"><defs><linearGradient id="gw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#d4d4da"/><stop offset="1" stop-color="#f6f6f8"/></linearGradient></defs>
+        <path d="M4,4 H260 A96,96 0 0 1 260,196 H4 Z" fill="url(#gw)" stroke="rgba(255,255,255,.9)" stroke-width="4"/><path d="M30,30 H250" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".8"/></svg></div></div>
+    <div class="abs" style="left:500px;top:200px" data-spill="15.65"></div>
+  </div>
+  <svg class="abs" style="left:0;top:0" width="1440" height="1080"><path class="draw" pathLength="1" d="M410,470 L790,330 M410,530 L790,670" stroke="rgba(216,184,120,.55)" stroke-width="3" stroke-dasharray="1" fill="none" style="animation-delay:16.95s;animation-duration:.5s"/></svg>
+  <div class="abs" style="left:770px;top:270px;width:460px;height:460px">
+    <svg width="460" height="460" viewBox="-230 -230 460 460">
+      <defs><radialGradient id="core" cx=".35" cy=".3"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#c9c9cf"/><stop offset="1" stop-color="#6e6e76"/></radialGradient>
+        <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dcaa"/><stop offset=".5" stop-color="#9c773e"/><stop offset="1" stop-color="#f0d9a6"/></linearGradient></defs>
+      <circle class="a pop" r="215" fill="rgba(216,184,120,.07)" style="transform-box:fill-box;transform-origin:center;animation-delay:16.95s"/>
+      <circle class="draw" pathLength="1" r="196" fill="none" stroke="url(#cg)" stroke-width="18" style="transform:rotate(-90deg);animation-delay:17.15s;animation-duration:.55s"/>
+      <circle class="draw" pathLength="1" r="166" fill="none" stroke="url(#cg)" stroke-width="14" opacity=".8" style="transform:rotate(-90deg);animation-delay:17.35s;animation-duration:.55s"/>
+      <circle class="draw" pathLength="1" r="140" fill="none" stroke="url(#cg)" stroke-width="10" opacity=".6" style="transform:rotate(-90deg);animation-delay:17.55s;animation-duration:.55s"/>
+      <g class="a pop" style="transform-box:fill-box;transform-origin:center;animation-delay:17.0s"><circle r="112" fill="url(#core)"/><text y="34" text-anchor="middle" font-family="K" font-weight="900" font-size="104" fill="#2a2a2e">Zn</text></g>
     </svg>
-    <div style="position:absolute;left:0;top:96px;width:440px;text-align:center"><span class="t goldt" style="font-size:200px;line-height:1">6</span><span class="t goldt" style="font-size:80px"> ชม.</span></div>
-    <div class="t" style="position:absolute;left:0;top:450px;width:440px;font-size:46px;color:#18181a">ดูดซึมได้ยาวๆ</div>
+  </div>
+  <div class="abs a pop" style="left:1150px;top:250px;animation-delay:17.7s"><span class="chip gold" style="font-size:32px;padding:8px 24px 12px">ชั้นเคลือบ</span></div>
+  <div class="abs a pop" style="left:1150px;top:680px;animation-delay:17.25s"><span class="chip" style="font-size:32px;padding:8px 24px 12px">แกนซิงค์</span></div>
+  <div class="abs a rise" style="left:120px;top:780px;width:1200px;animation-delay:18.0s">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px"><div class="t" style="font-size:44px;color:#fff;text-align:left">ค่อยๆ ปลดปล่อยต่อเนื่อง</div><div class="t goldt a slam" style="font-size:96px;line-height:1;animation-delay:19.3s">6 ชม.</div></div>
+    <div style="position:relative;height:34px;border-radius:17px;background:rgba(255,255,255,.1)"><div class="grow" style="position:absolute;inset:0;border-radius:17px;background:linear-gradient(90deg,#9c773e,#f0d9a6,#c9a464);animation-delay:18.1s;animation-duration:1.5s;animation-timing-function:linear"></div></div>
+    <div style="position:relative;height:60px" data-hours="18.1"></div>
   </div>
 </section>
 
-<!-- 6 for people who want real quality 19.82-24.34 -->
+<!-- 6 for people who want real quality 19.82-24.34: spotlight on the bottle, glass spec cards -->
 <section class="scene" data-start="19.82" data-end="24.34">
-  <div class="abs a inL photo" style="left:80px;top:140px;width:760px;height:760px;animation-delay:19.85s"><div class="in"><img class="kb" src="img/h_lab.jpg" style="object-position:62% 50%;animation-delay:19.85s"></div></div>
-  <div class="abs t metal a slam" style="left:890px;top:200px;font-size:84px;text-align:left;animation-delay:20.1s">สำหรับคน<br>ที่ต้องการ</div>
-  <div class="abs t goldt a slam" style="left:880px;top:410px;font-size:92px;text-align:left;animation-delay:20.6s">ซิงค์<br>คุณภาพจริง</div>
-  <div class="abs a pop" style="left:890px;top:720px;animation-delay:22.4s"><span class="chip gold" data-ic="drop">ดูดซึมดี</span></div>
-  <div class="abs a pop" style="left:890px;top:830px;animation-delay:23.3s"><span class="chip" data-ic="clock">อยู่ได้นาน</span></div>
+  <div class="abs" data-dust="30"></div>
+  <div class="abs" style="left:420px;top:-60px;width:640px;height:1100px;background:linear-gradient(rgba(255,236,200,.34),rgba(255,236,200,0) 88%);clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);filter:blur(6px);animation:lighton .5s 19.85s both"></div>
+  <div class="abs" style="left:520px;top:860px;width:440px;height:90px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,226,170,.45),rgba(255,226,170,0) 70%);animation:lighton .5s 19.9s both"></div>
+  <div class="abs" style="left:550px;top:250px;animation:riseup 1s cubic-bezier(.2,.8,.2,1) 20.0s both"><div class="float" style="position:relative;width:380px;height:629px"><img class="prod" src="img/black_bottle.png" style="width:380px"><img class="shine" src="img/black_bottle.png" style="width:380px;animation-delay:20.9s"></div></div>
+  <div class="abs t metal a rise" style="left:60px;top:250px;font-size:60px;text-align:left;animation-delay:20.1s">สำหรับคน<br>ที่ต้องการ</div>
+  <div class="abs t goldt a slam" style="left:56px;top:420px;font-size:120px;text-align:left;animation-delay:20.6s">ซิงค์</div>
+  <div class="abs t goldt a slam" style="left:56px;top:570px;font-size:90px;text-align:left;animation-delay:20.75s">คุณภาพจริง</div>
+  <svg class="abs" style="left:60px;top:705px" width="440" height="30"><path class="draw" pathLength="1" d="M4,18 Q220,0 436,14" stroke="#d8b878" stroke-width="7" fill="none" stroke-linecap="round" style="animation-delay:21.1s;animation-duration:.6s"/></svg>
+  <div class="abs glass" style="left:980px;top:290px;width:420px;padding:22px 22px;display:flex;align-items:center;gap:20px;animation:cardin .6s cubic-bezier(.2,.9,.25,1) 21.6s both"><div class="gico t" style="font-size:38px">Zn</div><div><div class="t" style="font-size:29px;color:#fff;text-align:left">Zinc Bisglycinate</div><div class="t" style="font-size:26px;color:#bdbdc3;text-align:left">ซิงค์ บิสไกลซิเนต</div></div></div>
+  <div class="abs glass" style="left:980px;top:470px;width:420px;padding:22px 22px;display:flex;align-items:center;gap:20px;animation:cardin .6s cubic-bezier(.2,.9,.25,1) 22.4s both"><div class="gico" data-ic2="drop"></div><div><div class="t" style="font-size:40px;color:#fff;text-align:left">ดูดซึมดี</div><div class="t" style="font-size:26px;color:#bdbdc3;text-align:left">ร่างกายนำไปใช้ได้</div></div></div>
+  <div class="abs glass" style="left:980px;top:650px;width:420px;padding:22px 22px;display:flex;align-items:center;gap:20px;animation:cardin .6s cubic-bezier(.2,.9,.25,1) 23.3s both"><div class="gico" data-ic2="clock"></div><div><div class="t" style="font-size:40px;color:#fff;text-align:left">อยู่ได้นาน</div><div class="t" style="font-size:26px;color:#bdbdc3;text-align:left">ปลดปล่อยต่อเนื่อง 6 ชม.</div></div></div>
 </section>
 
 <!-- 7 quality focus 24.34-29.36 -->
@@ -197,6 +232,14 @@ $("[data-dust]").forEach(el=>{let h="";const n=+el.dataset.dust;for(let i=0;i<n;
 $("[data-pellets]").forEach(el=>{const t=+el.dataset.pellets;let h="";for(let i=0;i<14;i++){const dx=60+(i*53)%340,dy=-120+(i*71)%300,s=22+(i*5)%18;
   h+=`<div class="pellet" style="left:0;top:0;width:${s}px;height:${s}px;--dx:${dx}px;--dy:${dy}px;animation:drip 2.4s ease-out ${t+i*.12}s infinite"></div>`}el.innerHTML=h});
 
+// pellets spilling from the opened capsule
+$("[data-spill]").forEach(el=>{const t=+el.dataset.spill;let h="";for(let i=0;i<12;i++){const dx=-90+(i*47)%180,dy=-150+(i*61)%300,sz=26+(i*7)%16;
+  h+=`<div class="pellet" style="left:${-sz/2}px;top:${-sz/2}px;width:${sz}px;height:${sz}px;--dx:${dx}px;--dy:${dy}px;animation:spill .9s cubic-bezier(.2,.8,.3,1) ${t+i*.07}s both"></div>`}el.innerHTML=h});
+// hour ticks; a pellet is released at each hour as the bar passes it
+$("[data-hours]").forEach(el=>{const t=+el.dataset.hours;let h="";for(let i=0;i<=6;i++){const x=i*200;
+  h+=`<div style="position:absolute;left:${x-40}px;top:14px;width:80px;text-align:center" class="t"><span style="font-size:28px;color:#9b9ba3">${i}</span></div>`;
+  if(i>0)h+=`<div class="pellet a pop" style="left:${x-16}px;top:-33px;width:32px;height:32px;animation-delay:${t+i*.25}s"></div>`}el.innerHTML=h});
+$("[data-ic2]").forEach(el=>el.innerHTML=IC[el.dataset.ic2].replace(/width="40" height="40"/,'width="46" height="46"'));
 const scenes=$(".scene");
 const inWin=(el,t)=>t>=+el.dataset.start&&t<+el.dataset.end;
 window.renderAt=t=>{
